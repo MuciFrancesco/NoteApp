@@ -1,0 +1,66 @@
+{
+  "sidebar": {
+    "crono": "crono",
+    "dashboard": "Panel",
+    "findNew": "Buscar Nuevos",
+    "lists": "Listas",
+    "templates": "Plantillas",
+    "sequences": "Secuencias",
+    "tasks": "Tareas",
+    "inbox": "Bandeja",
+    "deals": "Negocios",
+    "analytics": "Analíticas",
+    "trialEnds": "La prueba termina en {{days}} días",
+    "upgradePlan": "Mejorar plan 🚀",
+    "sales": "Ventas"
+  },
+  "welcome": {
+    "greeting": "Bienvenido {{name}},",
+    "description": "Aquí tienes tu resumen de rendimiento donde puedes seguir tus KPI diarios y mensuales."
+  },
+  "replies": {
+    "title": "Respuestas",
+    "openInbox": "Abrir bandeja"
+  },
+  "performance": {
+    "title": "Rendimiento de Mayo",
+    "editKpis": "Editar KPIs",
+    "contactsEngaged": "Contactos alcanzados",
+    "companiesEngaged": "Empresas alcanzadas",
+    "activities": "Actividades",
+    "meetings": "Reuniones",
+    "deals": "Negocios",
+    "pipeline": "Pipeline"
+  },
+  "todayTasks": {
+    "title": "Tareas de hoy",
+    "overdue": "Atrasadas",
+    "pendingManual": "Pendiente manual",
+    "pendingAuto": "Pendiente auto",
+    "completed": "Completadas",
+    "error": "{{count}} error",
+    "error_plural": "{{count}} errores"
+  },
+  "signals": {
+    "title": "Señales",
+    "description": "No pierdas ninguna oportunidad: revisa tus principales señales de tus conexiones LinkedIn de 1er grado.",
+    "noSignals": "No hay señales para mostrar",
+    "action": "Acción",
+    "complete": "Completar",
+    "delete": "Eliminar",
+    "roleChange": "Cambio de puesto",
+    "companyChange": "Cambio de empresa",
+    "websiteView": "Visita web",
+    "inSequence": "en secuencia",
+    "changedRole": "cambió de puesto de SDR a Senior SDR en {{company}}",
+    "viewedPages": "visitó {{pages}} páginas de tu sitio durante {{seconds}} seg"
+  },
+  "onboarding": {
+    "title": "Onboarding",
+    "integrationsSetup": "Configuración de integraciones",
+    "addNewContact": "Agregar nuevo contacto",
+    "createFirstSequence": "Crea tu primera secuencia",
+    "addContactsToSequence": "Agregar contactos a la secuencia",
+    "runFirstTask": "Ejecuta tu primera tarea"
+  }
+}

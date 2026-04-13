@@ -1,0 +1,66 @@
+{
+  "sidebar": {
+    "crono": "crono",
+    "dashboard": "Dashboard",
+    "findNew": "Trova Nuovi",
+    "lists": "Liste",
+    "templates": "Modelli",
+    "sequences": "Sequenze",
+    "tasks": "Attività",
+    "inbox": "Posta",
+    "deals": "Trattative",
+    "analytics": "Analisi",
+    "trialEnds": "Il trial scade tra {{days}} giorni",
+    "upgradePlan": "Aggiorna piano 🚀",
+    "sales": "Vendite"
+  },
+  "welcome": {
+    "greeting": "Benvenuto {{name}},",
+    "description": "Ecco la panoramica delle tue prestazioni dove puoi monitorare i tuoi KPI giornalieri e mensili."
+  },
+  "replies": {
+    "title": "Risposte",
+    "openInbox": "Apri posta"
+  },
+  "performance": {
+    "title": "Performance di Maggio",
+    "editKpis": "Modifica KPI",
+    "contactsEngaged": "Contatti coinvolti",
+    "companiesEngaged": "Aziende coinvolte",
+    "activities": "Attività",
+    "meetings": "Riunioni",
+    "deals": "Trattative",
+    "pipeline": "Pipeline"
+  },
+  "todayTasks": {
+    "title": "Attività di oggi",
+    "overdue": "In ritardo",
+    "pendingManual": "In attesa manuale",
+    "pendingAuto": "In attesa auto",
+    "completed": "Completate",
+    "error": "{{count}} errore",
+    "error_plural": "{{count}} errori"
+  },
+  "signals": {
+    "title": "Segnali",
+    "description": "Non perdere nessuna opportunità: controlla i segnali principali dalle tue connessioni LinkedIn di 1° grado.",
+    "noSignals": "Nessun segnale da visualizzare",
+    "action": "Azione",
+    "complete": "Completa",
+    "delete": "Elimina",
+    "roleChange": "Cambio ruolo",
+    "companyChange": "Cambio azienda",
+    "websiteView": "Visita sito web",
+    "inSequence": "in sequenza",
+    "changedRole": "ha cambiato ruolo da SDR a Senior SDR in {{company}}",
+    "viewedPages": "ha visualizzato {{pages}} pagine del tuo sito per {{seconds}} sec"
+  },
+  "onboarding": {
+    "title": "Onboarding",
+    "integrationsSetup": "Configurazione Integrazioni",
+    "addNewContact": "Aggiungi nuovo Contatto",
+    "createFirstSequence": "Crea la tua prima sequenza",
+    "addContactsToSequence": "Aggiungi contatti alla sequenza",
+    "runFirstTask": "Esegui la tua prima attività"
+  }
+}

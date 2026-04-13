@@ -1,0 +1,66 @@
+{
+  "sidebar": {
+    "crono": "crono",
+    "dashboard": "Dashboard",
+    "findNew": "Find New",
+    "lists": "Lists",
+    "templates": "Templates",
+    "sequences": "Sequences",
+    "tasks": "Tasks",
+    "inbox": "Inbox",
+    "deals": "Deals",
+    "analytics": "Analytics",
+    "trialEnds": "Trial ends in {{days}} days",
+    "upgradePlan": "Upgrade plan 🚀",
+    "sales": "Sales"
+  },
+  "welcome": {
+    "greeting": "Welcome {{name}},",
+    "description": "Here's your performance overview where you can track your daily and monthly KPIs."
+  },
+  "replies": {
+    "title": "Replies",
+    "openInbox": "Open inbox"
+  },
+  "performance": {
+    "title": "May's performance",
+    "editKpis": "Edit KPIs",
+    "contactsEngaged": "Contacts engaged",
+    "companiesEngaged": "Companies engaged",
+    "activities": "Activities",
+    "meetings": "Meetings",
+    "deals": "Deals",
+    "pipeline": "Pipeline"
+  },
+  "todayTasks": {
+    "title": "Today's tasks",
+    "overdue": "Overdue",
+    "pendingManual": "Pending Manual",
+    "pendingAuto": "Pending Auto",
+    "completed": "Completed",
+    "error": "{{count}} error",
+    "error_plural": "{{count}} errors"
+  },
+  "signals": {
+    "title": "Signals",
+    "description": "Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.",
+    "noSignals": "No signals to display",
+    "action": "Action",
+    "complete": "Complete",
+    "delete": "Delete",
+    "roleChange": "Role change",
+    "companyChange": "Company change",
+    "websiteView": "Website view",
+    "inSequence": "in sequence",
+    "changedRole": "changed role from SDR to Senior SDR at {{company}}",
+    "viewedPages": "viewed {{pages}} pages of your website for {{seconds}} sec"
+  },
+  "onboarding": {
+    "title": "Onboarding",
+    "integrationsSetup": "Integrations Setup",
+    "addNewContact": "Add new Contact",
+    "createFirstSequence": "Create your first sequence",
+    "addContactsToSequence": "Add contacts to sequence",
+    "runFirstTask": "Run your first task"
+  }
+}

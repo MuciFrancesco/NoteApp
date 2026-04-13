@@ -1,0 +1,66 @@
+{
+  "sidebar": {
+    "crono": "crono",
+    "dashboard": "Dashboard",
+    "findNew": "Neu finden",
+    "lists": "Listen",
+    "templates": "Vorlagen",
+    "sequences": "Sequenzen",
+    "tasks": "Aufgaben",
+    "inbox": "Posteingang",
+    "deals": "Geschäfte",
+    "analytics": "Analysen",
+    "trialEnds": "Testversion endet in {{days}} Tagen",
+    "upgradePlan": "Plan upgraden 🚀",
+    "sales": "Vertrieb"
+  },
+  "welcome": {
+    "greeting": "Willkommen {{name}},",
+    "description": "Hier ist Ihre Leistungsübersicht, in der Sie Ihre täglichen und monatlichen KPIs verfolgen können."
+  },
+  "replies": {
+    "title": "Antworten",
+    "openInbox": "Posteingang öffnen"
+  },
+  "performance": {
+    "title": "Performance im Mai",
+    "editKpis": "KPIs bearbeiten",
+    "contactsEngaged": "Kontakte erreicht",
+    "companiesEngaged": "Unternehmen erreicht",
+    "activities": "Aktivitäten",
+    "meetings": "Meetings",
+    "deals": "Geschäfte",
+    "pipeline": "Pipeline"
+  },
+  "todayTasks": {
+    "title": "Heutige Aufgaben",
+    "overdue": "Überfällig",
+    "pendingManual": "Ausstehend manuell",
+    "pendingAuto": "Ausstehend auto",
+    "completed": "Abgeschlossen",
+    "error": "{{count}} Fehler",
+    "error_plural": "{{count}} Fehler"
+  },
+  "signals": {
+    "title": "Signale",
+    "description": "Verpassen Sie keine Gelegenheit: Prüfen Sie Ihre wichtigsten Signale Ihrer LinkedIn-Kontakte 1. Grades.",
+    "noSignals": "Keine Signale vorhanden",
+    "action": "Aktion",
+    "complete": "Erledigen",
+    "delete": "Löschen",
+    "roleChange": "Rollenwechsel",
+    "companyChange": "Unternehmenswechsel",
+    "websiteView": "Websitebesuch",
+    "inSequence": "in Sequenz",
+    "changedRole": "hat die Rolle von SDR zu Senior SDR bei {{company}} gewechselt",
+    "viewedPages": "hat {{pages}} Seiten Ihrer Website {{seconds}} Sek. lang besucht"
+  },
+  "onboarding": {
+    "title": "Onboarding",
+    "integrationsSetup": "Integrationen einrichten",
+    "addNewContact": "Neuen Kontakt hinzufügen",
+    "createFirstSequence": "Erstellen Sie Ihre erste Sequenz",
+    "addContactsToSequence": "Kontakte zur Sequenz hinzufügen",
+    "runFirstTask": "Führen Sie Ihre erste Aufgabe aus"
+  }
+}

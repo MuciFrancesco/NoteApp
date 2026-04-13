@@ -1,0 +1,66 @@
+{
+  "sidebar": {
+    "crono": "crono",
+    "dashboard": "Tableau de bord",
+    "findNew": "Rechercher",
+    "lists": "Listes",
+    "templates": "Modèles",
+    "sequences": "Séquences",
+    "tasks": "Tâches",
+    "inbox": "Boîte de réception",
+    "deals": "Affaires",
+    "analytics": "Analyses",
+    "trialEnds": "L'essai se termine dans {{days}} jours",
+    "upgradePlan": "Mettre à niveau 🚀",
+    "sales": "Ventes"
+  },
+  "welcome": {
+    "greeting": "Bienvenue {{name}},",
+    "description": "Voici votre aperçu de performance où vous pouvez suivre vos KPI quotidiens et mensuels."
+  },
+  "replies": {
+    "title": "Réponses",
+    "openInbox": "Ouvrir la boîte"
+  },
+  "performance": {
+    "title": "Performance de Mai",
+    "editKpis": "Modifier KPIs",
+    "contactsEngaged": "Contacts engagés",
+    "companiesEngaged": "Entreprises engagées",
+    "activities": "Activités",
+    "meetings": "Réunions",
+    "deals": "Affaires",
+    "pipeline": "Pipeline"
+  },
+  "todayTasks": {
+    "title": "Tâches du jour",
+    "overdue": "En retard",
+    "pendingManual": "En attente manuelle",
+    "pendingAuto": "En attente auto",
+    "completed": "Terminées",
+    "error": "{{count}} erreur",
+    "error_plural": "{{count}} erreurs"
+  },
+  "signals": {
+    "title": "Signaux",
+    "description": "Ne manquez aucune opportunité : consultez vos principaux signaux de vos connexions LinkedIn de 1er degré.",
+    "noSignals": "Aucun signal à afficher",
+    "action": "Action",
+    "complete": "Terminer",
+    "delete": "Supprimer",
+    "roleChange": "Changement de poste",
+    "companyChange": "Changement d'entreprise",
+    "websiteView": "Visite du site",
+    "inSequence": "en séquence",
+    "changedRole": "a changé de poste de SDR à Senior SDR chez {{company}}",
+    "viewedPages": "a consulté {{pages}} pages de votre site pendant {{seconds}} sec"
+  },
+  "onboarding": {
+    "title": "Onboarding",
+    "integrationsSetup": "Configuration des intégrations",
+    "addNewContact": "Ajouter un nouveau contact",
+    "createFirstSequence": "Créez votre première séquence",
+    "addContactsToSequence": "Ajouter des contacts à la séquence",
+    "runFirstTask": "Exécutez votre première tâche"
+  }
+}

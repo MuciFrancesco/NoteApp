@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Responsive scaling ── */
+
+/* Below 1350px: slightly refined */
+@media (max-width: 1350px) {
+  .MuiCard-root { border-radius: 12px !important; }
+  .MuiCardContent-root { padding: 16px !important; }
+  .MuiButton-root { font-size: 13px !important; height: 34px !important; }
+  .MuiChip-root { height: 22px !important; font-size: 11px !important; }
+  .MuiAvatar-root { width: 32px !important; height: 32px !important; font-size: 12px !important; }
+  .MuiTypography-h1 { font-size: 22px !important; line-height: 28px !important; }
+  .MuiTypography-h5 { font-size: 13px !important; line-height: 18px !important; }
+  .MuiTypography-body1:not([data-key-number]),
+  .MuiTypography-body2:not([data-key-number]) { font-size: 13px !important; line-height: 19px !important; }
+  .MuiListItemButton-root { padding: 6px 12px !important; min-height: 38px !important; }
+  .MuiListItemIcon-root { min-width: 32px !important; }
+  .MuiListItemIcon-root .MuiSvgIcon-root { font-size: 20px !important; }
+}
+
+/* Below 1200px: single-column, keep things readable */
+@media (max-width: 1200px) {
+  .MuiCard-root { border-radius: 12px !important; }
+  .MuiCardContent-root { padding: 14px !important; }
+  .MuiButton-root { font-size: 13px !important; height: 34px !important; padding: 6px 14px !important; }
+  .MuiChip-root { height: 22px !important; font-size: 11px !important; }
+  .MuiAvatar-root { width: 32px !important; height: 32px !important; font-size: 12px !important; }
+  .MuiTypography-h1 { font-size: 20px !important; line-height: 26px !important; }
+  .MuiTypography-h5 { font-size: 13px !important; line-height: 18px !important; }
+  .MuiTypography-body1:not([data-key-number]),
+  .MuiTypography-body2:not([data-key-number]) { font-size: 13px !important; line-height: 19px !important; }
+  .MuiListItemButton-root { padding: 6px 12px !important; min-height: 36px !important; }
+}
+
+/* Below 900px: comfortable mobile */
+@media (max-width: 900px) {
+  .MuiCardContent-root { padding: 12px !important; }
+  .MuiButton-root { font-size: 12px !important; min-width: 70px !important; height: 32px !important; padding: 5px 12px !important; }
+  .MuiAvatar-root { width: 30px !important; height: 30px !important; font-size: 11px !important; }
+  .MuiTypography-h1 { font-size: 18px !important; line-height: 24px !important; }
+  .MuiTypography-h5 { font-size: 12px !important; line-height: 17px !important; }
+  .MuiTypography-body1:not([data-key-number]),
+  .MuiTypography-body2:not([data-key-number]) { font-size: 12px !important; line-height: 18px !important; }
+}
