@@ -1,32 +1,18 @@
-import { Box, Typography, Avatar, Chip, Button, Popover } from '@mui/material';
-import { CheckCircle, Delete } from '@mui/icons-material';
-import { useState } from 'react';
+import { Box, Typography, Avatar, Chip, Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import type { Signal } from '@/types';
-
-const tagStyles: Record<string, string> = {
-  blue: '#8846DC',
-  purple: '#3B85E8',
-  green: '#E769CB',
-};
+import { getInitials } from '@/utils/string';
+import { TAG_COLORS } from '@/styles/colors';
 
 interface SignalRowProps {
-  signal: Signal;
-  onComplete: (id: string) => void;
-  onDelete: (id: string) => void;
+  readonly signal: Signal;
+  readonly onOpenPopover: (signalId: string, e: React.MouseEvent<HTMLElement>) => void;
 }
 
-export function SignalRow({ signal, onComplete, onDelete }: SignalRowProps) {
+export function SignalRow({ signal, onOpenPopover }: SignalRowProps) {
   const { t } = useTranslation();
-  const tagColor = tagStyles[signal.tagVariant] || tagStyles.blue;
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
-  const initials = signal.personName
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
+  const tagColor = TAG_COLORS[signal.tagVariant] || TAG_COLORS.blue;
+  const initials = getInitials(signal.personName);
 
   return (
     <Box
@@ -40,9 +26,18 @@ export function SignalRow({ signal, onComplete, onDelete }: SignalRowProps) {
         transition: 'background-color 0.15s',
       }}
     >
-      <Avatar sx={{ width: 38, height: 38, fontSize: 14, fontWeight: 600, bgcolor: '#8846DC' }}>
-        {initials}
-      </Avatar>
+      <Box sx={{ position: 'relative', flexShrink: 0 }}>
+        <Avatar sx={{ width: 38, height: 38, fontSize: 14, fontWeight: 600, bgcolor: '#8846DC' }}>
+          {initials}
+        </Avatar>
+        <Box
+          sx={{
+            position: 'absolute', top: -2, left: -2,
+            width: 12, height: 12, borderRadius: '50%',
+            bgcolor: '#F9BB06', border: '2px solid white',
+          }}
+        />
+      </Box>
 
       <Box sx={{ minWidth: 0, flex: 1 }}>
         <Typography sx={{ fontSize: 14, color: '#3E485B', lineHeight: '20px' }}>
@@ -67,7 +62,6 @@ export function SignalRow({ signal, onComplete, onDelete }: SignalRowProps) {
         </Box>
       </Box>
 
-      {/* Date + Action — inline on md+, below on small */}
       <Box
         sx={{
           display: 'flex', alignItems: 'center', gap: 1.5, flexShrink: 0,
@@ -82,7 +76,7 @@ export function SignalRow({ signal, onComplete, onDelete }: SignalRowProps) {
 
         <Button
           variant="contained"
-          onClick={(e) => setAnchorEl(e.currentTarget)}
+          onClick={(e) => onOpenPopover(signal.id, e)}
           sx={{
             bgcolor: 'primary.main', color: 'white', textTransform: 'none',
             borderRadius: '34px', fontSize: 13, fontWeight: 600, minWidth: 88, height: 32,
@@ -93,45 +87,6 @@ export function SignalRow({ signal, onComplete, onDelete }: SignalRowProps) {
           {t('signals.action')}
         </Button>
       </Box>
-      <Popover
-        open={Boolean(anchorEl)}
-        anchorEl={anchorEl}
-        onClose={() => setAnchorEl(null)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        slotProps={{ paper: { sx: { borderRadius: 1, mt: 1, boxShadow: 3 } } }}
-      >
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, p: 1, minWidth: 160 }}>
-          <Button
-            endIcon={<CheckCircle sx={{ fontSize: 18 }} />}
-            onClick={() => { onComplete(signal.id); setAnchorEl(null); }}
-            sx={{
-              textTransform: 'none', fontSize: 13, fontWeight: 500,
-              color: '#3E485B', justifyContent: 'space-between',
-              '&:hover': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              '&:focus': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              borderRadius: 1.5, px: 2, py: 0.75,
-              gap: 3,
-            }}
-          >
-            {t('signals.complete')}
-          </Button>
-          <Button
-            endIcon={<Delete sx={{ fontSize: 18 }} />}
-            onClick={() => { onDelete(signal.id); setAnchorEl(null); }}
-            sx={{
-              textTransform: 'none', fontSize: 13, fontWeight: 500,
-              color: '#3E485B', justifyContent: 'space-between',
-              '&:hover': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              '&:focus': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              borderRadius: 1.5, px: 2, py: 0.75,
-              gap: 3,
-            }}
-          >
-            {t('signals.delete')}
-          </Button>
-        </Box>
-      </Popover>
     </Box>
   );
 }

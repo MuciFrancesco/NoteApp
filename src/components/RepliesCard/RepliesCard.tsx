@@ -1,9 +1,17 @@
 import { Card, CardContent, Typography, Box, Avatar, AvatarGroup } from '@mui/material';
-import { Inbox, ChevronRight } from '@mui/icons-material';
+import { ChevronRight } from '@mui/icons-material';
+import iconInbox from '@/assets/icons/icon-inbox-blue.svg';
 import { useTranslation } from 'react-i18next';
+import type { Reply } from '@/types';
 
-export function RepliesCard() {
+interface RepliesCardProps {
+  readonly replies: readonly Reply[];
+}
+
+export function RepliesCard({ replies }: RepliesCardProps) {
   const { t } = useTranslation();
+  const visibleAvatars = replies.slice(0, 4);
+
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <CardContent sx={{ p: 2.5, display: 'flex', flexDirection: 'column', '&:last-child': { pb: 2.5 } }}>
@@ -30,22 +38,21 @@ export function RepliesCard() {
               flexShrink: 0,
             }}
           >
-            <Inbox sx={{ fontSize: 24, color: 'primary.dark' }} />
+            <img src={iconInbox} alt="" width={24} height={24} />
           </Box>
           <Typography data-key-number sx={{ fontSize: 36, lineHeight: '44px', fontWeight: 500, color: '#3E485B' }}>
-            24
+            {replies.length}
           </Typography>
           <AvatarGroup
-            max={4}
+            max={5}
             sx={{
               ml: 'auto',
               '& .MuiAvatar-root': { width: 28, height: 28, fontSize: 11, fontWeight: 600, border: '2px solid #E9F8F8' },
             }}
           >
-            <Avatar sx={{ bgcolor: '#8846DC' }}>AK</Avatar>
-            <Avatar sx={{ bgcolor: '#1EBAB2' }}>MC</Avatar>
-            <Avatar sx={{ bgcolor: '#ED4C5E' }}>JD</Avatar>
-            <Avatar sx={{ bgcolor: '#3B85E8' }}>SP</Avatar>
+            {visibleAvatars.map((reply) => (
+              <Avatar key={reply.id} sx={{ bgcolor: reply.avatarColor }}>{reply.senderInitials}</Avatar>
+            ))}
           </AvatarGroup>
         </Box>
       </CardContent>

@@ -52,3 +52,17 @@ export interface SidebarItem {
   active?: boolean;
   hasSubmenu?: boolean;
 }
+
+export interface Reply {
+  id: string;
+  senderName: string;
+  senderInitials: string;
+  avatarColor: string;
+}
+
+export interface User {
+  name: string;
+  initials: string;
+  avatarColor: string;
+  role: string;
+}

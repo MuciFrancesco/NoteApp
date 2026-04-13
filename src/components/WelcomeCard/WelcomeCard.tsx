@@ -5,7 +5,7 @@ export function WelcomeCard() {
   const { t } = useTranslation();
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: { xs: 160, md: 'auto' } }}>
-      <CardContent sx={{ px: 3, py: 2.5, '&:last-child': { pb: 2.5 } }}>
+      <CardContent sx={{ px: 3, py: 2.5, '&:last-child': { pb: 2.5 } }}>        
         <Typography variant="h1" color="text.primary">
           {t('welcome.greeting', { name: 'Alex' })}
         </Typography>

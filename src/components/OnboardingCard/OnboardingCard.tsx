@@ -1,31 +1,26 @@
 import { Card, CardContent, Typography, Box } from '@mui/material';
-import {
-  Settings, PersonAdd, Email, Group, PlayArrow, ChevronRight,
-} from '@mui/icons-material';
+import { ChevronRight } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { OnboardingStep } from '@/types';
+import iconExtension from '@/assets/icons/icon-extension.svg';
+import iconAddContacts from '@/assets/icons/icon-add-contacts.svg';
+import iconGroup from '@/assets/icons/icon-group.svg';
+import iconAddToStrategy from '@/assets/icons/icon-add-to-strategy.svg';
+import iconRunTask from '@/assets/icons/icon-run-task.svg';
 
-const iconMap: Record<string, React.ElementType> = {
-  settings: Settings,
-  'user-plus': PersonAdd,
-  mail: Email,
-  users: Group,
-  play: PlayArrow,
-};
-
-const iconColors: Record<string, { bg: string; fg: string }> = {
-  settings: { bg: '#E9F8F8', fg: '#1EBAB2' },
-  'user-plus': { bg: '#EAF1FB', fg: '#3B85E8' },
-  mail: { bg: '#F2EAFF', fg: '#8846DC' },
-  users: { bg: '#FDE5F8', fg: '#E769CB' },
-  play: { bg: '#FEF3D2', fg: '#C69812' },
+const iconMap: Record<string, string> = {
+  settings: iconExtension,
+  'user-plus': iconAddContacts,
+  mail: iconGroup,
+  users: iconAddToStrategy,
+  play: iconRunTask,
 };
 
 interface OnboardingCardProps {
   steps: OnboardingStep[];
 }
 
-export function OnboardingCard({ steps }: OnboardingCardProps) {
+export function OnboardingCard({ steps }: Readonly<OnboardingCardProps>) {
   const { t } = useTranslation();
   return (
     <Card sx={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: { xs: 'visible', lg: 'hidden' } }}>
@@ -35,8 +30,7 @@ export function OnboardingCard({ steps }: OnboardingCardProps) {
 
       <Box sx={{ flex: 1, overflowY: { xs: 'visible', lg: 'auto' }, overflowX: 'hidden' }}>
         {steps.map((step) => {
-          const Icon = iconMap[step.icon];
-          const colors = iconColors[step.icon] || { bg: '#E9F8F8', fg: '#1EBAB2' };
+          const icon = iconMap[step.icon];
           return (
             <Box
               key={step.id}
@@ -50,12 +44,12 @@ export function OnboardingCard({ steps }: OnboardingCardProps) {
             >
               <Box
                 sx={{
-                  width: 42, height: 42, borderRadius: '10px',
-                  bgcolor: colors.bg, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: 42, height: 42,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
                   flexShrink: 0,
                 }}
               >
-                {Icon && <Icon sx={{ fontSize: 20, color: colors.fg }} />}
+                {icon && <img src={icon} alt="" width={36} height={36} />}
               </Box>
               <Typography sx={{ flex: 1, fontSize: 14, fontWeight: 500, color: '#3E485B' }}>
                 {t(step.title)}

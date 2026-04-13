@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
 import { WelcomeCard } from '@/components/WelcomeCard/WelcomeCard';
 import { CardSkeleton } from '@/components/CardSkeleton/CardSkeleton';
+import { useLoadingState } from '@/hooks/useLoadingState';
 
 export function WelcomeContainer() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => { const t = setTimeout(() => setLoading(false), 800); return () => clearTimeout(t); }, []);
+  const loading = useLoadingState(800);
   if (loading) return <CardSkeleton lines={2} />;
   return <WelcomeCard />;
 }

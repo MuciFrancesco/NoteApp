@@ -4,13 +4,13 @@ import type { TaskSummary } from '@/types';
 import { TaskCard } from '@/components/TaskCard/TaskCard';
 
 interface TodayTasksCardProps {
-  tasks: TaskSummary[];
+  readonly tasks: TaskSummary[];
 }
 
 export function TodayTasksCard({ tasks }: TodayTasksCardProps) {
   const { t } = useTranslation();
-  const pendingTasks = tasks.filter((t) => t.variant !== 'completed');
-  const completedTasks = tasks.filter((t) => t.variant === 'completed');
+  const pendingTasks = tasks.filter((tk) => tk.variant !== 'completed');
+  const completedTasks = tasks.filter((tk) => tk.variant === 'completed');
   return (
     <Card sx={{ height: '100%' }}>
       <CardContent sx={{ p: 2.5, '&:last-child': { pb: 2.5 } }}>

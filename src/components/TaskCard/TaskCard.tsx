@@ -2,21 +2,15 @@ import { Box, Typography } from '@mui/material';
 import { ChevronRight, Warning } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { TaskSummary } from '@/types';
-
-const variantStyles: Record<TaskSummary['variant'], { bg: string; count: string }> = {
-  overdue:          { bg: '#FFE9E9', count: '#ED4C5E' },
-  'pending-manual': { bg: '#FEF3D2', count: '#C69812' },
-  'pending-auto':   { bg: '#EAF1FB', count: '#3B85E8' },
-  completed:        { bg: '#E8F5D9', count: '#1A9D6E' },
-};
+import { TASK_VARIANT_COLORS } from '@/styles/colors';
 
 interface TaskCardProps {
   task: TaskSummary;
 }
 
-export function TaskCard({ task }: TaskCardProps) {
+export function TaskCard({ task }: Readonly<TaskCardProps>) {
   const { t } = useTranslation();
-  const s = variantStyles[task.variant];
+  const s = TASK_VARIANT_COLORS[task.variant];
   return (
     <Box
       sx={{
@@ -27,7 +21,6 @@ export function TaskCard({ task }: TaskCardProps) {
         minWidth: 0, minHeight: 100, height: '100%', position: 'relative',
       }}
     >
-      {/* Error badge — top right */}
       {task.error && (
         <Box
           sx={{
@@ -38,7 +31,7 @@ export function TaskCard({ task }: TaskCardProps) {
           }}
         >
           <Typography sx={{ fontSize: 12, fontWeight: 500, color: '#ED4C5E', lineHeight: '16px', whiteSpace: 'nowrap' }}>
-            {t(task.error!, { count: 1 })}
+            {t(task.error, { count: 1 })}
           </Typography>
           <Box
             sx={{
@@ -53,12 +46,10 @@ export function TaskCard({ task }: TaskCardProps) {
         </Box>
       )}
 
-      {/* Count — top */}
       <Typography data-key-number sx={{ fontSize: 24, fontWeight: 500, lineHeight: '30px', color: s.count }}>
         {task.count}
       </Typography>
 
-      {/* Label + arrow — bottom */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 'auto' }}>
         <Typography sx={{ fontSize: 14, fontWeight: 500, lineHeight: '16px', color: '#3E485B' }} noWrap>
           {t(task.label)}

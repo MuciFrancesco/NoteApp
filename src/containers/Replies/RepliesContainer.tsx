@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
 import { RepliesCard } from '@/components/RepliesCard/RepliesCard';
 import { CardSkeleton } from '@/components/CardSkeleton/CardSkeleton';
+import { useLoadingState } from '@/hooks/useLoadingState';
+import { replies } from '@/data/mock';
 
 export function RepliesContainer() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => { const t = setTimeout(() => setLoading(false), 1000); return () => clearTimeout(t); }, []);
+  const loading = useLoadingState(1000);
   if (loading) return <CardSkeleton lines={2} />;
-  return <RepliesCard />;
+  return <RepliesCard replies={replies} />;
 }

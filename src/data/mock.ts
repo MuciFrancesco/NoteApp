@@ -1,4 +1,4 @@
-import type { Signal, OnboardingStep, TaskSummary, KPI, SidebarItem } from '@/types';
+import type { Signal, OnboardingStep, TaskSummary, KPI, SidebarItem, Reply, User } from '@/types';
 
 export const signals: Signal[] = [
   {
@@ -144,6 +144,40 @@ export const kpis: KPI[] = [
     },
   },
 ];
+
+export const replies: Reply[] = [
+  { id: '1', senderName: 'Alice Kim', senderInitials: 'AK', avatarColor: '#8846DC' },
+  { id: '2', senderName: 'Marco Conti', senderInitials: 'MC', avatarColor: '#1EBAB2' },
+  { id: '3', senderName: 'John Doe', senderInitials: 'JD', avatarColor: '#ED4C5E' },
+  { id: '4', senderName: 'Sara Park', senderInitials: 'SP', avatarColor: '#3B85E8' },
+  { id: '5', senderName: 'Luca Rossi', senderInitials: 'LR', avatarColor: '#E2AD13' },
+  { id: '6', senderName: 'Emma Wilson', senderInitials: 'EW', avatarColor: '#E769CB' },
+  { id: '7', senderName: 'David Chen', senderInitials: 'DC', avatarColor: '#5B6BCD' },
+  { id: '8', senderName: 'Giulia Bianchi', senderInitials: 'GB', avatarColor: '#34A853' },
+  { id: '9', senderName: 'Tom Harris', senderInitials: 'TH', avatarColor: '#FF6D00' },
+  { id: '10', senderName: 'Nina Petrov', senderInitials: 'NP', avatarColor: '#8846DC' },
+  { id: '11', senderName: 'Carlos Ruiz', senderInitials: 'CR', avatarColor: '#1EBAB2' },
+  { id: '12', senderName: 'Yuki Tanaka', senderInitials: 'YT', avatarColor: '#ED4C5E' },
+  { id: '13', senderName: 'Anna Müller', senderInitials: 'AM', avatarColor: '#3B85E8' },
+  { id: '14', senderName: 'James Brown', senderInitials: 'JB', avatarColor: '#E2AD13' },
+  { id: '15', senderName: 'Sofia Greco', senderInitials: 'SG', avatarColor: '#E769CB' },
+  { id: '16', senderName: 'Paul Martin', senderInitials: 'PM', avatarColor: '#5B6BCD' },
+  { id: '17', senderName: 'Laura Neri', senderInitials: 'LN', avatarColor: '#34A853' },
+  { id: '18', senderName: 'Ryan Lee', senderInitials: 'RL', avatarColor: '#FF6D00' },
+  { id: '19', senderName: 'Chiara Ferretti', senderInitials: 'CF', avatarColor: '#8846DC' },
+  { id: '20', senderName: 'Max Weber', senderInitials: 'MW', avatarColor: '#1EBAB2' },
+  { id: '21', senderName: 'Lisa Chang', senderInitials: 'LC', avatarColor: '#ED4C5E' },
+  { id: '22', senderName: 'Andrea Ricci', senderInitials: 'AR', avatarColor: '#3B85E8' },
+  { id: '23', senderName: 'Olivia Scott', senderInitials: 'OS', avatarColor: '#E2AD13' },
+  { id: '24', senderName: 'Matteo Esposito', senderInitials: 'ME', avatarColor: '#E769CB' },
+];
+
+export const currentUser: User = {
+  name: 'William Robertson',
+  initials: 'WR',
+  avatarColor: '#8846DC',
+  role: 'sidebar.sales',
+};
 
 export const sidebarItems: SidebarItem[] = [
   { label: 'sidebar.dashboard', icon: 'layout-dashboard', path: '/', active: true },
