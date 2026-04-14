@@ -2,7 +2,7 @@ import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 Then('I should see the sidebar with the crono logo', () => {
   cy.get('.MuiDrawer-root').should('be.visible');
-  cy.get('.MuiDrawer-root').contains('crono').should('be.visible');
+  cy.get('.MuiDrawer-root').find('img[alt="Crono"]').should('be.visible');
 });
 
 Then('I should see the following menu items:', (table: { rawTable: string[][] }) => {

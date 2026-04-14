@@ -1,7 +1,7 @@
 import { Then } from '@badeball/cypress-cucumber-preprocessor';
 
 Then('I should see the welcome card', () => {
-  cy.contains('Welcome Alex,').should('be.visible');
+  cy.contains('Welcome William Robertson,').should('be.visible');
 });
 
 Then('I should see the replies card', () => {

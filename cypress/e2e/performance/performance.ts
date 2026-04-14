@@ -11,7 +11,7 @@ Then('I should see the {string} link', (linkText: string) => {
 Then('I should see {int} KPI cards in the performance section', (count: number) => {
   cy.contains("May's performance")
     .closest('.MuiCard-root')
-    .find('[class*="MuiLinearProgress"]')
+    .find('.MuiLinearProgress-root')
     .should('have.length', count);
 });
 
@@ -37,14 +37,14 @@ When('I hover over a KPI card', () => {
     .first()
     .closest('[class*="MuiBox-root"]')
     .parents('[class*="MuiBox-root"]')
-    .filter(':has(.kpi-info-btn)')
+    .filter(':has([data-testid="kpi-info-btn"])')
     .first()
     .as('kpiCard')
     .trigger('mouseover');
 });
 
 When('I click the info button', () => {
-  cy.get('@kpiCard').find('.kpi-info-btn').click({ force: true });
+  cy.get('@kpiCard').find('[data-testid="kpi-info-btn"]').click({ force: true });
 });
 
 Then('the KPI detail modal should open', () => {

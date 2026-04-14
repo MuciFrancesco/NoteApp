@@ -8,29 +8,14 @@ import styles from './SignalTable.module.css';
 interface SignalTableProps {
   readonly signals: Signal[];
   readonly unreadCount: number;
-  readonly onComplete: (id: string) => void;
-  readonly onDelete: (id: string) => void;
+  readonly onComplete: () => void;
+  readonly onDelete: () => void;
   readonly popoverAnchorEl: HTMLElement | null;
-  readonly popoverSignalId: string | null;
   readonly onOpenPopover: (signalId: string, e: React.MouseEvent<HTMLElement>) => void;
   readonly onClosePopover: () => void;
 }
 
-function handleComplete(popoverSignalId: string | null, onComplete: (id: string) => void, onClosePopover: () => void) {
-  if (popoverSignalId) {
-    onComplete(popoverSignalId);
-  }
-  onClosePopover();
-}
-
-function handleDelete(popoverSignalId: string | null, onDelete: (id: string) => void, onClosePopover: () => void) {
-  if (popoverSignalId) {
-    onDelete(popoverSignalId);
-  }
-  onClosePopover();
-}
-
-export function SignalTable({ signals, unreadCount, onComplete, onDelete, popoverAnchorEl, popoverSignalId, onOpenPopover, onClosePopover }: SignalTableProps) {
+export function SignalTable({ signals, unreadCount, onComplete, onDelete, popoverAnchorEl, onOpenPopover, onClosePopover }: SignalTableProps) {
   const { t } = useTranslation();
   return (
     <Card className={styles.card}>
@@ -67,14 +52,14 @@ export function SignalTable({ signals, unreadCount, onComplete, onDelete, popove
         <Box className={styles.popoverContent}>
           <Button
             endIcon={<CheckCircle sx={{ fontSize: 18 }} />}
-            onClick={() => handleComplete(popoverSignalId, onComplete, onClosePopover)}
+            onClick={onComplete}
             className={styles.popoverBtn}
           >
             {t('signals.complete')}
           </Button>
           <Button
             endIcon={<Delete sx={{ fontSize: 18 }} />}
-            onClick={() => handleDelete(popoverSignalId, onDelete, onClosePopover)}
+            onClick={onDelete}
             className={styles.popoverBtn}
           >
             {t('signals.delete')}

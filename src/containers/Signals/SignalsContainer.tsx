@@ -9,18 +9,17 @@ const SignalTable = lazy(() =>
 );
 
 export function SignalsContainer() {
-  const { signals, unreadCount, handleComplete, handleDelete } = useSignalsAction(initialSignals);
   const { anchorEl, handleOpen, handleClose, activeSignalId } = useSignalPopover();
+  const { signals, unreadCount, handleCompleteAction, handleDeleteAction } = useSignalsAction(initialSignals, activeSignalId, handleClose);
 
   return (
     <Suspense fallback={<CardSkeleton lines={5} />}>
       <SignalTable
         signals={signals}
         unreadCount={unreadCount}
-        onComplete={handleComplete}
-        onDelete={handleDelete}
+        onComplete={handleCompleteAction}
+        onDelete={handleDeleteAction}
         popoverAnchorEl={anchorEl}
-        popoverSignalId={activeSignalId}
         onOpenPopover={handleOpen}
         onClosePopover={handleClose}
       />

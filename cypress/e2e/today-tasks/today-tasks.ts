@@ -27,6 +27,6 @@ Then('the {string} task card should show an error badge', (label: string) => {
 Then('I should see a divider between pending and completed tasks', () => {
   cy.contains("Today's tasks")
     .closest('.MuiCard-root')
-    .find('hr.MuiDivider-root')
+    .find('.MuiDivider-root')
     .should('exist');
 });

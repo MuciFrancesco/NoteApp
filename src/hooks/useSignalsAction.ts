@@ -4,21 +4,27 @@ import type { Signal } from '@/types';
 interface UseSignalsActionReturn {
   signals: Signal[];
   unreadCount: number;
-  handleComplete: (id: string) => void;
-  handleDelete: (id: string) => void;
+  handleCompleteAction: () => void;
+  handleDeleteAction: () => void;
 }
 
-export function useSignalsAction(initialSignals: Signal[]): UseSignalsActionReturn {
+export function useSignalsAction(
+  initialSignals: Signal[],
+  activeSignalId: string | null,
+  onClose: () => void,
+): UseSignalsActionReturn {
   const [signals, setSignals] = useState<Signal[]>(initialSignals);
   const unreadCount = useMemo(() => signals.length, [signals]);
 
-  const handleComplete = useCallback((id: string) => {
-    setSignals((prev) => prev.filter((s) => s.id !== id));
-  }, []);
+  const handleCompleteAction = useCallback(() => {
+    if (activeSignalId) setSignals((prev) => prev.filter((s) => s.id !== activeSignalId));
+    onClose();
+  }, [activeSignalId, onClose]);
 
-  const handleDelete = useCallback((id: string) => {
-    setSignals((prev) => prev.filter((s) => s.id !== id));
-  }, []);
+  const handleDeleteAction = useCallback(() => {
+    if (activeSignalId) setSignals((prev) => prev.filter((s) => s.id !== activeSignalId));
+    onClose();
+  }, [activeSignalId, onClose]);
 
-  return { signals, unreadCount, handleComplete, handleDelete };
+  return { signals, unreadCount, handleCompleteAction, handleDeleteAction };
 }

@@ -1,27 +1,11 @@
 import { Card, CardContent, Typography, Box, LinearProgress, IconButton } from '@mui/material';
-import {
-  PeopleAlt, Business, TrendingUp, Edit, InfoOutlined,
-} from '@mui/icons-material';
-import iconKpiTask from '@/assets/icons/icon-kpi-task.svg';
-import iconKpiDeals from '@/assets/icons/icon-kpi-deals.svg';
-import iconKpiGroup from '@/assets/icons/icon-kpi-group.svg';
+import { Edit, InfoOutlined } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { KPI } from '@/types';
-import { KPI_COLORS, COLORS } from '@/styles/colors';
+import { COLORS } from '@/styles/colors';
 import { fmtVal } from '@/utils/format';
+import { kpiIconMap, kpiSvgIconMap, getKpiColor, getKpiPct } from '@/utils/kpi';
 import styles from './PerformanceCard.module.css';
-
-const iconMap: Record<string, React.ElementType> = {
-  users: PeopleAlt,
-  building: Business,
-  trending: TrendingUp,
-};
-
-const svgIconMap: Record<string, string> = {
-  list: iconKpiTask,
-  calendar: iconKpiGroup,
-  dollar: iconKpiDeals,
-};
 
 interface PerformanceCardProps {
   readonly kpis: KPI[];
@@ -44,15 +28,16 @@ export function PerformanceCard({ kpis, onOpenDialog }: PerformanceCardProps) {
 
         <Box className={styles.kpiGrid}>
           {kpis.map((kpi) => {
-            const Icon = iconMap[kpi.icon];
-            const svgIcon = svgIconMap[kpi.icon];
-            const color = KPI_COLORS[kpi.icon] || COLORS.textSecondary;
-            const pct = kpi.target > 0 ? Math.min((kpi.current / kpi.target) * 100, 100) : 0;
+            const Icon = kpiIconMap[kpi.icon];
+            const svgIcon = kpiSvgIconMap[kpi.icon];
+            const color = getKpiColor(kpi.icon);
+            const pct = getKpiPct(kpi.current, kpi.target);
             return (
               <Box key={kpi.label} className={styles.kpiItem}>
                 <Box className={styles.kpiBox}>
                   <IconButton
                     className={styles.infoBtn}
+                    data-testid="kpi-info-btn"
                     onClick={() => onOpenDialog(kpi)}
                   >
                     <InfoOutlined className={styles.infoIcon} />

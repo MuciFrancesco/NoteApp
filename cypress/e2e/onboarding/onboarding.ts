@@ -25,7 +25,6 @@ Then('I should see the following onboarding steps:', (table: { rawTable: string[
 When('I hover over an onboarding step', () => {
   cy.contains('Integrations Setup')
     .closest('[class*="MuiBox-root"]')
-    .filter('[style*="cursor"], :has([class*="cursor"])')
     .first()
     .as('onboardingStep')
     .trigger('mouseover');

@@ -1,29 +1,11 @@
 import { Typography, Box, LinearProgress, IconButton, Dialog, DialogTitle, DialogContent, Divider } from '@mui/material';
-import {
-  PeopleAlt, Business, TrendingUp,
-  Close,
-} from '@mui/icons-material';
-import iconKpiTask from '@/assets/icons/icon-kpi-task.svg';
-import iconKpiDeals from '@/assets/icons/icon-kpi-deals.svg';
-import iconKpiGroup from '@/assets/icons/icon-kpi-group.svg';
+import { Close } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { KPI } from '@/types';
-import { KPI_COLORS, COLORS } from '@/styles/colors';
+import { COLORS } from '@/styles/colors';
 import { fmtVal, trendColor } from '@/utils/format';
-import { TrendIcon } from '@/utils/kpi';
+import { TrendIcon, kpiIconMap, kpiSvgIconMap, getKpiColor, getKpiPct } from '@/utils/kpi';
 import styles from './KpiDetailDialog.module.css';
-
-const iconMap: Record<string, React.ElementType> = {
-  users: PeopleAlt,
-  building: Business,
-  trending: TrendingUp,
-};
-
-const svgIconMap: Record<string, string> = {
-  list: iconKpiTask,
-  calendar: iconKpiGroup,
-  dollar: iconKpiDeals,
-};
 
 interface KpiDetailDialogProps {
   readonly kpi: KPI | null;
@@ -35,10 +17,10 @@ export function KpiDetailDialog({ kpi, onClose }: KpiDetailDialogProps) {
 
   if (!kpi) return null;
 
-  const Icon = iconMap[kpi.icon];
-  const svgIcon = svgIconMap[kpi.icon];
-  const color = KPI_COLORS[kpi.icon] || COLORS.textSecondary;
-  const pct = kpi.target > 0 ? Math.min((kpi.current / kpi.target) * 100, 100) : 0;
+  const Icon = kpiIconMap[kpi.icon];
+  const svgIcon = kpiSvgIconMap[kpi.icon];
+  const color = getKpiColor(kpi.icon);
+  const pct = getKpiPct(kpi.current, kpi.target);
 
   return (
     <Dialog

@@ -40,15 +40,15 @@ const resources = {
 
       // Onboarding
       'onboarding.title': 'Onboarding',
-      'onboarding.integrationsSetup': 'Integrations setup',
-      'onboarding.addNewContact': 'Add a new contact',
+      'onboarding.integrationsSetup': 'Integrations Setup',
+      'onboarding.addNewContact': 'Add new Contact',
       'onboarding.createFirstSequence': 'Create your first sequence',
-      'onboarding.addContactsToSequence': 'Add contacts to a sequence',
+      'onboarding.addContactsToSequence': 'Add contacts to sequence',
       'onboarding.runFirstTask': 'Run your first task',
 
       // Sidebar
       'sidebar.dashboard': 'Dashboard',
-      'sidebar.findNew': 'Find new',
+      'sidebar.findNew': 'Find New',
       'sidebar.lists': 'Lists',
       'sidebar.templates': 'Templates',
       'sidebar.sequences': 'Sequences',

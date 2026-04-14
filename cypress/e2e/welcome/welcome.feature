@@ -3,7 +3,7 @@ Feature: Welcome Card
 
   Scenario: Welcome greeting is displayed
     Given I open the dashboard
-    Then I should see the greeting "Welcome Alex,"
+    Then I should see the greeting "Welcome William Robertson,"
 
   Scenario: Welcome description is displayed
     Given I open the dashboard
