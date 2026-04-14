@@ -1,0 +1,27 @@
+.container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 16px 20px !important;
+}
+
+.avatar {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.info {
+  min-width: 0 !important;
+  flex: 1 !important;
+}
+
+.name {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.role {
+  font-size: 12px !important;
+}

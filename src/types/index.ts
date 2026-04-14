@@ -49,8 +49,8 @@ export interface SidebarItem {
   icon: string;
   path: string;
   badge?: number;
-  active?: boolean;
   hasSubmenu?: boolean;
+  disabled?: boolean;
 }
 
 export interface Reply {
@@ -65,4 +65,6 @@ export interface User {
   initials: string;
   avatarColor: string;
   role: string;
+  plan: 'trial' | 'premium';
+  trialEndsAt?: string; // ISO date string, present only when plan === 'trial'
 }

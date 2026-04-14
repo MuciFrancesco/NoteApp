@@ -1,0 +1,52 @@
+.card {
+  height: 100% !important;
+}
+
+.cardContent {
+  padding: 20px !important;
+}
+
+.cardContent:last-child {
+  padding-bottom: 20px !important;
+}
+
+.title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 22px !important;
+  margin-bottom: 16px !important;
+}
+
+.tasksRow {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+@media (min-width: 900px) {
+  .tasksRow {
+    flex-wrap: nowrap !important;
+  }
+}
+
+.taskWrapper {
+  flex: 1 !important;
+  min-width: 100% !important;
+}
+
+@media (min-width: 600px) {
+  .taskWrapper {
+    min-width: 45% !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .taskWrapper {
+    min-width: 0 !important;
+  }
+}
+
+.divider {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+}

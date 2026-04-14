@@ -9,4 +9,16 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000, // Aumenta il limite di dimensione dei chunk a 1000 kB
+  },
 })

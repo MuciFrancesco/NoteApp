@@ -177,10 +177,12 @@ export const currentUser: User = {
   initials: 'WR',
   avatarColor: '#8846DC',
   role: 'sidebar.sales',
+  plan: 'trial',
+  trialEndsAt: (() => { const d = new Date(); d.setDate(d.getDate() + 2); return d.toISOString().split('T')[0]; })(),
 };
 
 export const sidebarItems: SidebarItem[] = [
-  { label: 'sidebar.dashboard', icon: 'layout-dashboard', path: '/', active: true },
+  { label: 'sidebar.dashboard', icon: 'layout-dashboard', path: '/' },
   { label: 'sidebar.findNew', icon: 'search', path: '/find-new' },
   { label: 'sidebar.lists', icon: 'list', path: '/lists' },
   { label: 'sidebar.templates', icon: 'file-text', path: '/templates' },
@@ -188,5 +190,5 @@ export const sidebarItems: SidebarItem[] = [
   { label: 'sidebar.tasks', icon: 'check-square', path: '/tasks' },
   { label: 'sidebar.inbox', icon: 'inbox', path: '/inbox', badge: 24 },
   { label: 'sidebar.deals', icon: 'briefcase', path: '/deals' },
-  { label: 'sidebar.analytics', icon: 'bar-chart-2', path: '/analytics', hasSubmenu: true },
+  { label: 'sidebar.analytics', icon: 'bar-chart-2', path: '/analytics', hasSubmenu: true, disabled: true },
 ];

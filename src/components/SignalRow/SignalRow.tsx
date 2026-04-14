@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import type { Signal } from '@/types';
 import { getInitials } from '@/utils/string';
 import { TAG_COLORS } from '@/styles/colors';
+import styles from './SignalRow.module.css';
 
 interface SignalRowProps {
   readonly signal: Signal;
@@ -15,74 +16,35 @@ export function SignalRow({ signal, onOpenPopover }: SignalRowProps) {
   const initials = getInitials(signal.personName);
 
   return (
-    <Box
-      sx={{
-        display: 'flex', alignItems: { xs: 'flex-start', md: 'center' },
-        flexWrap: { xs: 'wrap', md: 'nowrap' }, gap: { xs: 1.5, md: 2 },
-        px: 2.5, py: 2,
-        borderTop: '1px solid', borderColor: 'divider',
-        '&:first-of-type': { borderTop: 'none' },
-        '&:hover': { bgcolor: 'grey.50' },
-        transition: 'background-color 0.15s',
-      }}
-    >
-      <Box sx={{ position: 'relative', flexShrink: 0 }}>
-        <Avatar sx={{ width: 38, height: 38, fontSize: 14, fontWeight: 600, bgcolor: '#8846DC' }}>
-          {initials}
-        </Avatar>
-        <Box
-          sx={{
-            position: 'absolute', top: -2, left: -2,
-            width: 12, height: 12, borderRadius: '50%',
-            bgcolor: '#F9BB06', border: '2px solid white',
-          }}
-        />
+    <Box className={styles.row}>
+      <Box className={styles.avatarWrapper}>
+        <Avatar className={styles.avatar}>{initials}</Avatar>
+        <Box className={styles.unreadDot} />
       </Box>
 
-      <Box sx={{ minWidth: 0, flex: 1 }}>
-        <Typography sx={{ fontSize: 14, color: '#3E485B', lineHeight: '20px' }}>
-          <Box component="span" sx={{ fontWeight: 600, color: 'text.primary' }}>{signal.personName}</Box>{' '}
+      <Box className={styles.content}>
+        <Typography className={styles.description}>
+          <Box component="span" className={styles.personName} sx={{ color: 'text.primary' }}>{signal.personName}</Box>{' '}
           {signal.description}
         </Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 0.5 }}>
-          <Typography sx={{ fontSize: 12, fontWeight: 500, color: tagColor }}>
+        <Box className={styles.tagRow}>
+          <Typography className={styles.tagText} style={{ color: tagColor }}>
             {signal.tag}
           </Typography>
           {signal.secondaryTag && (
-            <Chip
-              label={signal.secondaryTag}
-              size="small"
-              sx={{
-                height: 24, fontSize: 12, fontWeight: 500,
-                bgcolor: 'rgba(10,155,148,0.12)', color: '#0A9B94',
-                '& .MuiChip-label': { px: 1.25 },
-              }}
-            />
+            <Chip label={signal.secondaryTag} size="small" className={styles.chip} />
           )}
         </Box>
       </Box>
 
-      <Box
-        sx={{
-          display: 'flex', alignItems: 'center', gap: 1.5, flexShrink: 0,
-          width: { xs: '100%', md: 'auto' },
-          pl: { xs: '54px', md: 0 },
-          mt: { xs: 0.5, md: 0 },
-        }}
-      >
-        <Typography sx={{ fontSize: 13, color: 'text.secondary', flexShrink: 0, fontVariantNumeric: 'tabular-nums' }}>
+      <Box className={styles.actionsRow}>
+        <Typography className={styles.date} color="text.secondary">
           {signal.date}
         </Typography>
-
         <Button
           variant="contained"
           onClick={(e) => onOpenPopover(signal.id, e)}
-          sx={{
-            bgcolor: 'primary.main', color: 'white', textTransform: 'none',
-            borderRadius: '34px', fontSize: 13, fontWeight: 600, minWidth: 88, height: 32,
-            px: 2.5, ml: 'auto',
-            '&:hover': { bgcolor: 'primary.dark' },
-          }}
+          className={styles.actionBtn}
         >
           {t('signals.action')}
         </Button>

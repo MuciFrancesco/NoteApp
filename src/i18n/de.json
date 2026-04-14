@@ -55,6 +55,11 @@
     "changedRole": "hat die Rolle von SDR zu Senior SDR bei {{company}} gewechselt",
     "viewedPages": "hat {{pages}} Seiten Ihrer Website {{seconds}} Sek. lang besucht"
   },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "goHome": "Zum Dashboard"
+  },
   "onboarding": {
     "title": "Onboarding",
     "integrationsSetup": "Integrationen einrichten",

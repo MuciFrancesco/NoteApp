@@ -1,0 +1,139 @@
+.card {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important;
+}
+
+@media (min-width: 1200px) {
+  .card {
+    overflow: auto !important;
+  }
+}
+
+.cardContent {
+  padding: 16px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.cardContent:last-child {
+  padding-bottom: 16px !important;
+}
+
+.header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+
+.headerTitle {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 22px !important;
+}
+
+.editLink {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  cursor: pointer !important;
+  margin-left: auto !important;
+  color: var(--color-primary-dark) !important;
+}
+
+.editLink:hover {
+  opacity: 0.8 !important;
+}
+
+.editLinkText {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 18px !important;
+}
+
+.editIcon {
+  font-size: 16px !important;
+  display: block !important;
+}
+
+.kpiGrid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  flex: 1 !important;
+}
+
+.kpiItem {
+  width: calc(50% - 3px) !important;
+}
+
+.kpiBox {
+  border: 1px solid var(--color-divider) !important;
+  border-radius: 16px !important;
+  padding: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  position: relative !important;
+}
+
+.kpiBox:hover .infoBtn {
+  opacity: 1 !important;
+}
+
+.infoBtn {
+  position: absolute !important;
+  top: 6px !important;
+  right: 6px !important;
+  width: 32px !important;
+  height: 32px !important;
+  opacity: 0 !important;
+  transition: opacity 0.15s ease !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.infoBtn:hover {
+  color: var(--color-primary-dark) !important;
+  background-color: var(--color-primary-light) !important;
+}
+
+.infoIcon {
+  font-size: 20px !important;
+}
+
+.kpiLabel {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 16px !important;
+  color: var(--color-text-dark) !important;
+  padding-right: 20px !important;
+}
+
+.kpiValuesRow {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.kpiNumber {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+.kpiProgress {
+  margin-top: 2px !important;
+  height: 3px !important;
+  border-radius: 32px !important;
+  background-color: var(--color-divider) !important;
+}
+
+.kpiProgress :global(.MuiLinearProgress-bar) {
+  border-radius: 32px !important;
+}

@@ -1,10 +1,15 @@
-import { RepliesCard } from '@/components/RepliesCard/RepliesCard';
+import { Suspense, lazy } from 'react';
 import { CardSkeleton } from '@/components/CardSkeleton/CardSkeleton';
-import { useLoadingState } from '@/hooks/useLoadingState';
 import { replies } from '@/data/mock';
 
+const RepliesCard = lazy(() =>
+  import('@/components/RepliesCard/RepliesCard').then(m => ({ default: m.RepliesCard }))
+);
+
 export function RepliesContainer() {
-  const loading = useLoadingState(1000);
-  if (loading) return <CardSkeleton lines={2} />;
-  return <RepliesCard replies={replies} />;
+  return (
+    <Suspense fallback={<CardSkeleton lines={2} />}>
+      <RepliesCard replies={replies} />
+    </Suspense>
+  );
 }

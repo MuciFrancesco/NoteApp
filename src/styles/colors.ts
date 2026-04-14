@@ -23,6 +23,12 @@ export const COLORS = {
   pink: '#E769CB',
   pinkLight: '#FDE5F8',
   logoGreen: '#07C8C0',
+  white: '#FFFFFF',
+  bgHover: '#F5F5F5',
+  bgStripe: '#FAFAFA',
+  primaryDarker: '#078A83',
+  dividerDark: '#D5E0F0',
+  darkYellowDark: '#A37D0E',
 } as const;
 
 export const KPI_COLORS: Record<string, string> = {

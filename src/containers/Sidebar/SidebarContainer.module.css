@@ -1,0 +1,16 @@
+.drawer {
+  flex-shrink: 0 !important;
+  transition: width 0.25s ease !important;
+}
+
+.drawer :global(.MuiDrawer-paper) {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-x: hidden !important;
+  border-color: var(--color-divider) !important;
+}
+
+.spacer {
+  flex: 1 !important;
+}

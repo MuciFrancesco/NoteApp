@@ -1,0 +1,28 @@
+.card {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  min-height: 160px !important;
+}
+
+@media (min-width: 900px) {
+  .card {
+    min-height: unset !important;
+  }
+}
+
+.cardContent {
+  padding: 20px 24px !important;
+}
+
+.cardContent:last-child {
+  padding-bottom: 20px !important;
+}
+
+.description {
+  margin-top: 8px !important;
+  font-size: 13px !important;
+  color: var(--color-text-secondary) !important;
+  line-height: 20px !important;
+}

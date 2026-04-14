@@ -1,0 +1,46 @@
+.main {
+  flex-grow: 1 !important;
+  padding: 12px !important;
+  min-height: 100vh !important;
+  overflow: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    padding: 16px !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+}
+
+.innerCol {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  flex: 1 !important;
+}
+
+@media (min-width: 1200px) {
+  .innerCol {
+    gap: 12px !important;
+    min-height: 0 !important;
+  }
+}
+
+.signalsWrapper {
+  display: flex !important;
+  min-height: 300px !important;
+}
+
+@media (min-width: 1200px) {
+  .signalsWrapper {
+    flex: 1 !important;
+    min-height: 0 !important;
+  }
+}
+
+.shrinkBox {
+  flex-shrink: 0 !important;
+}

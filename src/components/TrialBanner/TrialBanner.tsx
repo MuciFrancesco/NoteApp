@@ -1,24 +1,27 @@
 import { Box, Typography, Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import type { User } from '@/types';
+import { daysRemaining } from '@/utils/format';
+import styles from './TrialBanner.module.css';
 
-export function TrialBanner() {
+interface TrialBannerProps {
+  readonly user: User;
+}
+
+export function TrialBanner({ user }: TrialBannerProps) {
   const { t } = useTranslation();
+
+  if (user.plan !== 'trial' || !user.trialEndsAt) return null;
+
+  const days = daysRemaining(user.trialEndsAt);
+
   return (
-    <Box sx={{ mx: 2, mt: 1, mb: 2 }}>
-      <Box sx={{ borderRadius: 1.5, bgcolor: '#FEF3D2', p: 2 }}>
-        <Typography sx={{ fontSize: 13, fontWeight: 600, color: 'text.primary' }}>
-          {t('sidebar.trialEnds', { days: 2 })}
+    <Box className={styles.wrapper}>
+      <Box className={styles.box}>
+        <Typography className={styles.title} color="text.primary">
+          {t('sidebar.trialEnds', { days })}
         </Typography>
-        <Button
-          fullWidth
-          variant="contained"
-          sx={{
-            mt: 1.5, bgcolor: '#F9BB06', color: 'white',
-            fontSize: 13, fontWeight: 700, textTransform: 'none',
-            borderRadius: 2, py: 1,
-            '&:hover': { bgcolor: '#C69812' },
-          }}
-        >
+        <Button fullWidth variant="contained" className={styles.button}>
           {t('sidebar.upgradePlan')}
         </Button>
       </Box>

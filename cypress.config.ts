@@ -16,6 +16,7 @@ export default defineConfig({
       );
       return config;
     },
+
   },
   viewportWidth: 1440,
   viewportHeight: 900,

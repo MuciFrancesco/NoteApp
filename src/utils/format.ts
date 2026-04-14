@@ -8,3 +8,11 @@ export function trendColor(trend: string): string {
   if (trend === 'down') return '#ED4C5E';
   return '#7A8395';
 }
+
+export function daysRemaining(trialEndsAt: string): number {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const end = new Date(trialEndsAt);
+  end.setHours(0, 0, 0, 0);
+  return Math.max(0, Math.ceil((end.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
+}

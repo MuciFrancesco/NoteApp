@@ -1,0 +1,18 @@
+.drawerHeader {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 20px 20px 16px !important;
+}
+
+.toggleBtn {
+  color: var(--color-text-secondary) !important;
+}
+
+.toggleBtn:hover {
+  background-color: var(--color-bg-hover) !important;
+}
+
+.toggleIcon {
+  font-size: 22px !important;
+}

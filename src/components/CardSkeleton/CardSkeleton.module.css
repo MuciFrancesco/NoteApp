@@ -1,0 +1,33 @@
+.card {
+  width: 100% !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.cardContent {
+  padding: 20px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.cardContent:last-child {
+  padding-bottom: 20px !important;
+}
+
+.skeletonTitle {
+  border-radius: 8px !important;
+}
+
+.skeletonLines {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  flex: 1 !important;
+}
+
+.skeletonItem {
+  border-radius: 16px !important;
+}

@@ -62,5 +62,10 @@
     "createFirstSequence": "Create your first sequence",
     "addContactsToSequence": "Add contacts to sequence",
     "runFirstTask": "Run your first task"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go to Dashboard"
   }
 }

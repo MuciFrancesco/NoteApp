@@ -3,6 +3,7 @@ import { CheckCircle, Delete } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { Signal } from '@/types';
 import { SignalRow } from '@/components/SignalRow/SignalRow';
+import styles from './SignalTable.module.css';
 
 interface SignalTableProps {
   readonly signals: Signal[];
@@ -15,36 +16,42 @@ interface SignalTableProps {
   readonly onClosePopover: () => void;
 }
 
+function handleComplete(popoverSignalId: string | null, onComplete: (id: string) => void, onClosePopover: () => void) {
+  if (popoverSignalId) {
+    onComplete(popoverSignalId);
+  }
+  onClosePopover();
+}
+
+function handleDelete(popoverSignalId: string | null, onDelete: (id: string) => void, onClosePopover: () => void) {
+  if (popoverSignalId) {
+    onDelete(popoverSignalId);
+  }
+  onClosePopover();
+}
+
 export function SignalTable({ signals, unreadCount, onComplete, onDelete, popoverAnchorEl, popoverSignalId, onOpenPopover, onClosePopover }: SignalTableProps) {
   const { t } = useTranslation();
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: 'hidden' }}>
-      <CardContent sx={{ px: 2.5, pt: 2.5, pb: 2, '&:last-child': { pb: 2 } }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Typography sx={{ fontSize: 16, fontWeight: 600, color: 'text.primary' }}>{t('signals.title')}</Typography>
-          <Chip
-            label={unreadCount}
-            size="small"
-            sx={{
-              bgcolor: '#F9BB06', color: 'white', height: 22, minWidth: 24,
-              fontSize: 11, fontWeight: 600,
-              '& .MuiChip-label': { px: 0.75 },
-            }}
-          />
+    <Card className={styles.card}>
+      <CardContent className={styles.cardContent}>
+        <Box className={styles.header}>
+          <Typography className={styles.title} color="text.primary">{t('signals.title')}</Typography>
+          <Chip label={unreadCount} size="small" className={styles.badge} />
         </Box>
-        <Typography sx={{ mt: 0.5, fontSize: 13, color: 'text.secondary', lineHeight: '20px' }}>
+        <Typography className={styles.description} color="text.secondary">
           {t('signals.description')}
         </Typography>
       </CardContent>
 
-      <Box sx={{ flex: 1, overflowY: 'auto' }}>
+      <Box className={styles.scrollArea}>
         {signals.length > 0 ? (
           signals.map((s) => (
             <SignalRow key={s.id} signal={s} onOpenPopover={onOpenPopover} />
           ))
         ) : (
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', py: 5 }}>
-            <Typography sx={{ fontSize: 14, color: 'text.secondary' }}>{t('signals.noSignals')}</Typography>
+          <Box className={styles.emptyState}>
+            <Typography className={styles.emptyText} color="text.secondary">{t('signals.noSignals')}</Typography>
           </Box>
         )}
       </Box>
@@ -57,32 +64,18 @@ export function SignalTable({ signals, unreadCount, onComplete, onDelete, popove
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         slotProps={{ paper: { sx: { borderRadius: 1, mt: 1, boxShadow: 3 } } }}
       >
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, p: 1, minWidth: 160 }}>
+        <Box className={styles.popoverContent}>
           <Button
             endIcon={<CheckCircle sx={{ fontSize: 18 }} />}
-            onClick={() => { if (popoverSignalId) onComplete(popoverSignalId); onClosePopover(); }}
-            sx={{
-              textTransform: 'none', fontSize: 13, fontWeight: 500,
-              color: '#3E485B', justifyContent: 'space-between',
-              '&:hover': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              '&:focus': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              borderRadius: 1.5, px: 2, py: 0.75,
-              gap: 3,
-            }}
+            onClick={() => handleComplete(popoverSignalId, onComplete, onClosePopover)}
+            className={styles.popoverBtn}
           >
             {t('signals.complete')}
           </Button>
           <Button
             endIcon={<Delete sx={{ fontSize: 18 }} />}
-            onClick={() => { if (popoverSignalId) onDelete(popoverSignalId); onClosePopover(); }}
-            sx={{
-              textTransform: 'none', fontSize: 13, fontWeight: 500,
-              color: '#3E485B', justifyContent: 'space-between',
-              '&:hover': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              '&:focus': { bgcolor: '#E9F8F8', color: '#1EBAB2' },
-              borderRadius: 1.5, px: 2, py: 0.75,
-              gap: 3,
-            }}
+            onClick={() => handleDelete(popoverSignalId, onDelete, onClosePopover)}
+            className={styles.popoverBtn}
           >
             {t('signals.delete')}
           </Button>

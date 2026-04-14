@@ -1,6 +1,7 @@
 import { Box, Typography, Avatar, Divider } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import type { User } from '@/types';
+import styles from './SidebarUser.module.css';
 
 interface SidebarUserProps {
   readonly user: User;
@@ -11,15 +12,15 @@ export function SidebarUser({ user }: SidebarUserProps) {
   return (
     <>
       <Divider sx={{ borderColor: 'divider' }} />
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, px: 2.5, py: 2 }}>
-        <Avatar sx={{ width: 36, height: 36, fontSize: 14, fontWeight: 600, bgcolor: user.avatarColor }}>
+      <Box className={styles.container}>
+        <Avatar className={styles.avatar} style={{ backgroundColor: user.avatarColor }}>
           {user.initials}
         </Avatar>
-        <Box sx={{ minWidth: 0, flex: 1 }}>
-          <Typography noWrap sx={{ fontSize: 14, fontWeight: 600, color: 'text.primary' }}>
+        <Box className={styles.info}>
+          <Typography noWrap className={styles.name} color="text.primary">
             {user.name}
           </Typography>
-          <Typography sx={{ fontSize: 12, color: 'text.secondary' }}>{t(user.role)}</Typography>
+          <Typography className={styles.role} color="text.secondary">{t(user.role)}</Typography>
         </Box>
       </Box>
     </>

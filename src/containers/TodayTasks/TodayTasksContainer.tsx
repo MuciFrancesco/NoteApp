@@ -1,10 +1,15 @@
-import { TodayTasksCard } from '@/components/TodayTasksCard/TodayTasksCard';
+import { Suspense, lazy } from 'react';
 import { CardSkeleton } from '@/components/CardSkeleton/CardSkeleton';
 import { todayTasks } from '@/data/mock';
-import { useLoadingState } from '@/hooks/useLoadingState';
+
+const TodayTasksCard = lazy(() =>
+  import('@/components/TodayTasksCard/TodayTasksCard').then(m => ({ default: m.TodayTasksCard }))
+);
 
 export function TodayTasksContainer() {
-  const loading = useLoadingState(900);
-  if (loading) return <CardSkeleton lines={2} />;
-  return <TodayTasksCard tasks={todayTasks} />;
+  return (
+    <Suspense fallback={<CardSkeleton lines={2} />}>
+      <TodayTasksCard tasks={todayTasks} />
+    </Suspense>
+  );
 }

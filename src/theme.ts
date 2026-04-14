@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { COLORS } from '@/styles/colors';
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -25,23 +26,23 @@ declare module '@mui/material/styles' {
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#1EBAB2', dark: '#0A9B94', light: '#E9F8F8' },
-    secondary: { main: '#F9BB06', dark: '#C69812', light: '#FEF3D2' },
-    error: { main: '#ED4C5E' },
-    success: { main: '#1A9D6E', light: '#E8F5D9' },
-    info: { main: '#3B85E8', light: '#EAF1FB' },
-    warning: { main: '#F9BB06', light: '#FEF3D2' },
-    background: { default: '#F5F7F9', paper: '#FFFFFF' },
-    text: { primary: '#010E27', secondary: '#7A8395' },
-    divider: '#E6E9F2',
-    crono: { main: '#1EBAB2', dark: '#0A9B94', light: '#E9F8F8' },
-    cronoDark: { main: '#0A9B94', dark: '#078A83', light: '#CEEDED' },
-    gray1: { main: '#7A8395', dark: '#3E485B', light: '#D5E0F0' },
-    gray4: { main: '#E6E9F2', dark: '#D5E0F0', light: '#F5F7F9' },
-    gray7: { main: '#F5F7F9', dark: '#E6E9F2', light: '#FFFFFF' },
-    grayHover1: { main: '#3E485B', dark: '#010E27', light: '#7A8395' },
-    yellow: { main: '#F9BB06', dark: '#C69812', light: '#FEF3D2' },
-    darkYellow: { main: '#C69812', dark: '#A37D0E', light: '#FEF3D2' },
+    primary: { main: COLORS.primary, dark: COLORS.primaryDark, light: COLORS.primaryLight },
+    secondary: { main: COLORS.yellow, dark: COLORS.darkYellow, light: COLORS.yellowLight },
+    error: { main: COLORS.error },
+    success: { main: COLORS.success, light: COLORS.successLight },
+    info: { main: COLORS.info, light: COLORS.infoLight },
+    warning: { main: COLORS.yellow, light: COLORS.yellowLight },
+    background: { default: COLORS.bgDefault, paper: COLORS.white },
+    text: { primary: COLORS.textPrimary, secondary: COLORS.textSecondary },
+    divider: COLORS.divider,
+    crono: { main: COLORS.primary, dark: COLORS.primaryDark, light: COLORS.primaryLight },
+    cronoDark: { main: COLORS.primaryDark, dark: COLORS.primaryDarker, light: COLORS.primaryLighter },
+    gray1: { main: COLORS.textSecondary, dark: COLORS.textDark, light: COLORS.dividerDark },
+    gray4: { main: COLORS.divider, dark: COLORS.dividerDark, light: COLORS.bgDefault },
+    gray7: { main: COLORS.bgDefault, dark: COLORS.divider, light: COLORS.white },
+    grayHover1: { main: COLORS.textDark, dark: COLORS.textPrimary, light: COLORS.textSecondary },
+    yellow: { main: COLORS.yellow, dark: COLORS.darkYellow, light: COLORS.yellowLight },
+    darkYellow: { main: COLORS.darkYellow, dark: COLORS.darkYellowDark, light: COLORS.yellowLight },
   },
   typography: {
     fontFamily: '"Poppins", system-ui, -apple-system, sans-serif',
@@ -59,7 +60,7 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: '#F5F7F9',
+          backgroundColor: COLORS.bgDefault,
           WebkitFontSmoothing: 'antialiased',
         },
       },
@@ -68,7 +69,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 16,
-          border: '1px solid #E6E9F2',
+          border: `1px solid ${COLORS.divider}`,
           boxShadow: 'none',
         },
       },

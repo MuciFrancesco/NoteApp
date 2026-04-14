@@ -1,9 +1,14 @@
-import { WelcomeCard } from '@/components/WelcomeCard/WelcomeCard';
+import { Suspense, lazy } from 'react';
 import { CardSkeleton } from '@/components/CardSkeleton/CardSkeleton';
-import { useLoadingState } from '@/hooks/useLoadingState';
+
+const WelcomeCard = lazy(() =>
+  import('@/components/WelcomeCard/WelcomeCard').then(m => ({ default: m.WelcomeCard }))
+);
 
 export function WelcomeContainer() {
-  const loading = useLoadingState(800);
-  if (loading) return <CardSkeleton lines={2} />;
-  return <WelcomeCard />;
+  return (
+    <Suspense fallback={<CardSkeleton lines={2} />}>
+      <WelcomeCard />
+    </Suspense>
+  );
 }

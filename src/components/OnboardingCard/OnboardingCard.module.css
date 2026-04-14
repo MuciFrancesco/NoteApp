@@ -1,0 +1,78 @@
+.card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+
+@media (min-width: 1200px) {
+  .card {
+    overflow: hidden !important;
+  }
+}
+
+.cardContent {
+  padding: 20px 20px 16px !important;
+}
+
+.cardContent:last-child {
+  padding-bottom: 16px !important;
+}
+
+.title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.scrollArea {
+  flex: 1 !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+}
+
+@media (min-width: 1200px) {
+  .scrollArea {
+    overflow-y: auto !important;
+  }
+}
+
+.stepRow {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 16px 20px !important;
+  border-top: 1px solid var(--color-divider) !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.stepRow:hover {
+  background-color: var(--color-bg-hover) !important;
+}
+
+.iconWrapper {
+  width: 42px !important;
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.stepTitle {
+  flex: 1 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--color-text-dark) !important;
+}
+
+.stepDuration {
+  font-size: 13px !important;
+  flex-shrink: 0 !important;
+}
+
+.stepChevron {
+  font-size: 16px !important;
+  flex-shrink: 0 !important;
+}

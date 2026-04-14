@@ -8,9 +8,10 @@ import iconKpiDeals from '@/assets/icons/icon-kpi-deals.svg';
 import iconKpiGroup from '@/assets/icons/icon-kpi-group.svg';
 import { useTranslation } from 'react-i18next';
 import type { KPI } from '@/types';
-import { KPI_COLORS } from '@/styles/colors';
+import { KPI_COLORS, COLORS } from '@/styles/colors';
 import { fmtVal, trendColor } from '@/utils/format';
 import { TrendIcon } from '@/utils/kpi';
+import styles from './KpiDetailDialog.module.css';
 
 const iconMap: Record<string, React.ElementType> = {
   users: PeopleAlt,
@@ -36,7 +37,7 @@ export function KpiDetailDialog({ kpi, onClose }: KpiDetailDialogProps) {
 
   const Icon = iconMap[kpi.icon];
   const svgIcon = svgIconMap[kpi.icon];
-  const color = KPI_COLORS[kpi.icon] || '#7A8395';
+  const color = KPI_COLORS[kpi.icon] || COLORS.textSecondary;
   const pct = kpi.target > 0 ? Math.min((kpi.current / kpi.target) * 100, 100) : 0;
 
   return (
@@ -51,56 +52,53 @@ export function KpiDetailDialog({ kpi, onClose }: KpiDetailDialogProps) {
         },
       }}
     >
-      <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', pb: 1 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+      <DialogTitle className={styles.dialogTitle}>
+        <Box className={styles.titleIconRow}>
           {Icon ? <Icon sx={{ fontSize: 20, color }} /> : svgIcon ? <img src={svgIcon} alt="" width={20} height={20} /> : null}
-          <Typography sx={{ fontSize: 16, fontWeight: 600, color: 'text.primary' }}>{t(kpi.label)}</Typography>
+          <Typography className={styles.titleText} color="text.primary">{t(kpi.label)}</Typography>
         </Box>
         <IconButton onClick={onClose} size="small" sx={{ color: 'text.secondary' }}>
-          <Close sx={{ fontSize: 18 }} />
+          <Close className={styles.closeIcon} />
         </IconButton>
       </DialogTitle>
       <DialogContent sx={{ pt: '0 !important' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
-          <Typography sx={{ fontSize: 12, color: 'text.secondary' }}>{t(kpi.detail.period)}</Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+        <Box className={styles.metaRow}>
+          <Typography className={styles.metaPeriod} color="text.secondary">{t(kpi.detail.period)}</Typography>
+          <Box className={styles.trendRow}>
             <TrendIcon trend={kpi.detail.trend} />
-            <Typography sx={{ fontSize: 12, fontWeight: 600, color: trendColor(kpi.detail.trend) }}>
+            <Typography className={styles.trendPct} style={{ color: trendColor(kpi.detail.trend) }}>
               {kpi.detail.trendPct}%
             </Typography>
           </Box>
         </Box>
 
-        <Box sx={{ mb: 2 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
-            <Typography sx={{ fontSize: 20, fontWeight: 600 }}>
-              <Box component="span" sx={{ color }}>{fmtVal(kpi.current, kpi.prefix)}</Box>
-              <Box component="span" sx={{ color: '#7A8395' }}>/{fmtVal(kpi.target, kpi.prefix)}</Box>
+        <Box className={styles.progressSection}>
+          <Box className={styles.progressValueRow}>
+            <Typography className={styles.progressValue}>
+              <Box component="span" style={{ color }}>{fmtVal(kpi.current, kpi.prefix)}</Box>
+              <Box component="span" style={{ color: COLORS.textSecondary }}>/{fmtVal(kpi.target, kpi.prefix)}</Box>
             </Typography>
-            <Typography sx={{ fontSize: 12, color: 'text.secondary', alignSelf: 'flex-end' }}>{Math.round(pct)}%</Typography>
+            <Typography className={styles.progressPct} color="text.secondary">{Math.round(pct)}%</Typography>
           </Box>
           <LinearProgress
             variant="determinate"
             value={pct}
-            sx={{
-              height: 6, borderRadius: 3,
-              bgcolor: 'divider',
-              '& .MuiLinearProgress-bar': { bgcolor: color, borderRadius: 3 },
-            }}
+            className={styles.progressBar}
+            sx={{ '& .MuiLinearProgress-bar': { bgcolor: color } }}
           />
         </Box>
 
-        <Divider sx={{ mb: 1.5 }} />
+        <Divider className={styles.divider} />
 
-        <Typography sx={{ fontSize: 13, color: 'text.secondary', mb: 2, lineHeight: '20px' }}>
+        <Typography className={styles.description} color="text.secondary">
           {t(kpi.detail.description)}
         </Typography>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+        <Box className={styles.breakdownList}>
           {kpi.detail.breakdown.map((item) => (
-            <Box key={item.label} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography sx={{ fontSize: 13, color: '#3E485B' }}>{t(item.label)}</Typography>
-              <Typography sx={{ fontSize: 13, fontWeight: 600, color: '#3E485B', fontVariantNumeric: 'tabular-nums' }}>
+            <Box key={item.label} className={styles.breakdownItem}>
+              <Typography className={styles.breakdownLabel}>{t(item.label)}</Typography>
+              <Typography className={styles.breakdownValue}>
                 {fmtVal(item.value, kpi.prefix)}
               </Typography>
             </Box>

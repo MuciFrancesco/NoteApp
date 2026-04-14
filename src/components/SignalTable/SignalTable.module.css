@@ -1,0 +1,87 @@
+.card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.cardContent {
+  padding: 20px 20px 16px !important;
+}
+
+.cardContent:last-child {
+  padding-bottom: 16px !important;
+}
+
+.header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.badge {
+  background-color: var(--color-yellow) !important;
+  color: white !important;
+  height: 22px !important;
+  min-width: 24px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+.badge :global(.MuiChip-label) {
+  padding: 0 6px !important;
+}
+
+.description {
+  margin-top: 4px !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+}
+
+.scrollArea {
+  flex: 1 !important;
+  overflow-y: auto !important;
+}
+
+.emptyState {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+.emptyText {
+  font-size: 14px !important;
+}
+
+.popoverContent {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  padding: 8px !important;
+  min-width: 160px !important;
+}
+
+.popoverBtn {
+  text-transform: none !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--color-text-dark) !important;
+  justify-content: space-between !important;
+  border-radius: 24px !important;
+  padding: 6px 16px !important;
+  gap: 24px !important;
+}
+
+.popoverBtn:hover,
+.popoverBtn:focus {
+  background-color: var(--color-primary-light) !important;
+  color: var(--color-primary) !important;
+}

@@ -1,0 +1,5 @@
+.root {
+  display: flex !important;
+  min-height: 100vh !important;
+  background-color: var(--color-bg-default) !important;
+}
