@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { PATH } from '@/routes/paths';
 
 const PAGE_TITLES: Record<string, string> = {
-  '/': 'sidebar.dashboard',
-  '/find-new': 'sidebar.findNew',
-  '/lists': 'sidebar.lists',
-  '/templates': 'sidebar.templates',
-  '/sequences': 'sidebar.sequences',
-  '/tasks': 'sidebar.tasks',
-  '/inbox': 'sidebar.inbox',
-  '/deals': 'sidebar.deals',
+  [PATH.dashboard]: 'sidebar.dashboard',
+  [PATH.findNew]: 'sidebar.findNew',
+  [PATH.lists]: 'sidebar.lists',
+  [PATH.templates]: 'sidebar.templates',
+  [PATH.sequences]: 'sidebar.sequences',
+  [PATH.tasks]: 'sidebar.tasks',
+  [PATH.inbox]: 'sidebar.inbox',
+  [PATH.deals]: 'sidebar.deals',
 };
 
 export function PageTitle() {

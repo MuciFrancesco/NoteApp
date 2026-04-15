@@ -1,20 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
-import { DashboardContainer } from '@/containers/Dashboard/DashboardContainer';
-import { PlaceholderContainer } from '@/containers/Placeholder/PlaceholderContainer';
-import { NotFoundContainer } from '@/containers/NotFound/NotFoundContainer';
+import { DashboardPage } from '@/pages/DashboardPage';
+import { PlaceholderPage } from '@/pages/PlaceholderPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { PATH } from './paths';
 
 export function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<DashboardContainer />} />
-      <Route path="/find-new" element={<PlaceholderContainer labelKey="sidebar.findNew" />} />
-      <Route path="/lists" element={<PlaceholderContainer labelKey="sidebar.lists" />} />
-      <Route path="/templates" element={<PlaceholderContainer labelKey="sidebar.templates" />} />
-      <Route path="/sequences" element={<PlaceholderContainer labelKey="sidebar.sequences" />} />
-      <Route path="/tasks" element={<PlaceholderContainer labelKey="sidebar.tasks" />} />
-      <Route path="/inbox" element={<PlaceholderContainer labelKey="sidebar.inbox" />} />
-      <Route path="/deals" element={<PlaceholderContainer labelKey="sidebar.deals" />} />
-      <Route path="*" element={<NotFoundContainer />} />
+      <Route path={PATH.dashboard} element={<DashboardPage />} />
+      <Route path={PATH.findNew} element={<PlaceholderPage labelKey="sidebar.findNew" />} />
+      <Route path={PATH.lists} element={<PlaceholderPage labelKey="sidebar.lists" />} />
+      <Route path={PATH.templates} element={<PlaceholderPage labelKey="sidebar.templates" />} />
+      <Route path={PATH.sequences} element={<PlaceholderPage labelKey="sidebar.sequences" />} />
+      <Route path={PATH.tasks} element={<PlaceholderPage labelKey="sidebar.tasks" />} />
+      <Route path={PATH.inbox} element={<PlaceholderPage labelKey="sidebar.inbox" />} />
+      <Route path={PATH.deals} element={<PlaceholderPage labelKey="sidebar.deals" />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

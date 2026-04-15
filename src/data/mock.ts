@@ -1,4 +1,5 @@
 import type { Signal, OnboardingStep, TaskSummary, KPI, SidebarItem, Reply, User } from '@/types';
+import { PATH } from '@/routes/paths';
 
 export const signals: Signal[] = [
   {
@@ -182,13 +183,13 @@ export const currentUser: User = {
 };
 
 export const sidebarItems: SidebarItem[] = [
-  { label: 'sidebar.dashboard', icon: 'layout-dashboard', path: '/' },
-  { label: 'sidebar.findNew', icon: 'search', path: '/find-new' },
-  { label: 'sidebar.lists', icon: 'list', path: '/lists' },
-  { label: 'sidebar.templates', icon: 'file-text', path: '/templates' },
-  { label: 'sidebar.sequences', icon: 'git-branch', path: '/sequences' },
-  { label: 'sidebar.tasks', icon: 'check-square', path: '/tasks' },
-  { label: 'sidebar.inbox', icon: 'inbox', path: '/inbox', badge: 24 },
-  { label: 'sidebar.deals', icon: 'briefcase', path: '/deals' },
+  { label: 'sidebar.dashboard', icon: 'layout-dashboard', path: PATH.dashboard },
+  { label: 'sidebar.findNew', icon: 'search', path: PATH.findNew },
+  { label: 'sidebar.lists', icon: 'list', path: PATH.lists },
+  { label: 'sidebar.templates', icon: 'file-text', path: PATH.templates },
+  { label: 'sidebar.sequences', icon: 'git-branch', path: PATH.sequences },
+  { label: 'sidebar.tasks', icon: 'check-square', path: PATH.tasks },
+  { label: 'sidebar.inbox', icon: 'inbox', path: PATH.inbox, badge: 24 },
+  { label: 'sidebar.deals', icon: 'briefcase', path: PATH.deals },
   { label: 'sidebar.analytics', icon: 'bar-chart-2', path: '/analytics', hasSubmenu: true, disabled: true },
 ];
