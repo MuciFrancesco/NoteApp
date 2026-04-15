@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import type { KPI } from '@/types';
 import { COLORS } from '@/styles/colors';
 import { fmtVal, trendColor } from '@/utils/format';
-import { TrendIcon, kpiIconMap, kpiSvgIconMap, getKpiColor, getKpiPct } from '@/utils/kpi';
+import { TrendIcon } from '@/components/TrendIcon/TrendIcon';
+import { kpiIconMap, kpiSvgIconMap, getKpiColor, getKpiPct } from '@/utils/kpi';
 import styles from './KpiDetailDialog.module.css';
 
 interface KpiDetailDialogProps {

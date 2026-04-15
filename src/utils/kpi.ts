@@ -1,10 +1,11 @@
-import { TrendingUp, TrendingDown, TrendingFlat, PeopleAlt, Business } from '@mui/icons-material';
+import { TrendingUp, Business, PeopleAlt } from '@mui/icons-material';
+import type { ElementType } from 'react';
 import iconKpiTask from '@/assets/icons/icon-kpi-task.svg';
 import iconKpiDeals from '@/assets/icons/icon-kpi-deals.svg';
 import iconKpiGroup from '@/assets/icons/icon-kpi-group.svg';
 import { COLORS, KPI_COLORS } from '@/styles/colors';
 
-export const kpiIconMap: Record<string, React.ElementType> = {
+export const kpiIconMap: Record<string, ElementType> = {
   users: PeopleAlt,
   building: Business,
   trending: TrendingUp,
@@ -22,10 +23,4 @@ export function getKpiColor(icon: string): string {
 
 export function getKpiPct(current: number, target: number): number {
   return target > 0 ? Math.min((current / target) * 100, 100) : 0;
-}
-
-export function TrendIcon({ trend }: Readonly<{ trend: string }>) {
-  if (trend === 'up') return <TrendingUp sx={{ fontSize: 16, color: COLORS.success }} />;
-  if (trend === 'down') return <TrendingDown sx={{ fontSize: 16, color: COLORS.error }} />;
-  return <TrendingFlat sx={{ fontSize: 16, color: COLORS.textSecondary }} />;
 }
